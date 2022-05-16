@@ -28,7 +28,7 @@ cd ~/workspace/catkin_ws_ov/src/
 # repositories to clone
 cd src
 git clone https://github.com/rpng/open_vins.git
-git clone https://github.com/rpng/ov_secondary.git
+git clone https://github.com/Li-Jesse-Jiaze/ov_hloc.git
 # go back to root and build
 cd ..
 catkin build -j4
