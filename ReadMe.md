@@ -57,4 +57,4 @@ select `config/vins_rviz_config.rviz` as config in rviz
 
 It runs well with VINS-Fusion, but the pose graph is not very smooth when I use it as a secondary node of OpenVINS on my laptop(RTX 2060 Max-Q 65W). This is mainly because my NetVLAD is using a VGG16 (it tooks more than 50ms for each frame 😠). It would be better to use a lighter network (e.g. Mobile Net) to describe the images for NetVLAD.
 
-Here's a [video](https://www.bilibili.com/video/bv1KP4y1F73M) of it working with the VINS-Fusion.
+Here's a simple [video](https://www.bilibili.com/video/bv1KP4y1F73M) of it working with VINS-Fusion.

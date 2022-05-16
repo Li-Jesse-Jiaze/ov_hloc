@@ -22,9 +22,9 @@
         <!--<remap from="/vins_estimator/margin_cloud"     to="invalid2"/>-->
 
         <!-- OUTPUT: visualization topics -->
-        <remap from="/loop_fusion_node/match_image"    to="/ov_secondary/match_image"/>
-        <remap from="/loop_fusion_node/pose_rect"      to="/ov_secondary/poseimu"/>
-        <remap from="/loop_fusion_node/odometry_rect"  to="/ov_secondary/odomimu"/>
+        <remap from="/loop_fusion_node/match_image"    to="/ov_hloc/match_image"/>
+        <remap from="/loop_fusion_node/pose_rect"      to="/ov_hloc/poseimu"/>
+        <remap from="/loop_fusion_node/odometry_rect"  to="/ov_hloc/odomimu"/>
 
 
     </node>

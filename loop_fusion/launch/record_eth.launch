@@ -39,7 +39,7 @@
 
     <!-- record loop closed pose -->
     <node name="recorder_estimate2" pkg="ov_eval" type="pose_to_file" output="screen">
-        <param name="topic"      type="str" value="/ov_secondary/poseimu" />
+        <param name="topic"      type="str" value="/ov_hloc/poseimu" />
         <param name="topic_type" type="str" value="PoseWithCovarianceStamped" />
         <param name="output"     type="str" value="$(arg path_opt)" />
     </node>

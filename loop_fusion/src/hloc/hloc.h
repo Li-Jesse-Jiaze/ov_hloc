@@ -9,10 +9,10 @@
 #include <opencv2/dnn/dnn.hpp>
 #include "../utility/tic_toc.h"
 
-#define SuperPointPath "/home/jesse/workspace/catkin_ws_ov/src/ov_secondary/support_files/models/SuperPoint_300.pt"
-#define NetVLADPath "/home/jesse/workspace/catkin_ws_ov/src/ov_secondary/support_files/models/NetVLAD.pt"
-#define SuperGluePath "/home/jesse/workspace/catkin_ws_ov/src/ov_secondary/support_files/models/SuperGlue_outdoor.pt"
-#define UltraPointPath "/home/jesse/workspace/catkin_ws_ov/src/ov_secondary/support_files/models/UltraPoint.pt"
+#define SuperPointPath "/home/jesse/workspace/catkin_ws_ov/src/ov_hloc/support_files/models/SuperPoint_300.pt"
+#define NetVLADPath "/home/jesse/workspace/catkin_ws_ov/src/ov_hloc/support_files/models/NetVLAD.pt"
+#define SuperGluePath "/home/jesse/workspace/catkin_ws_ov/src/ov_hloc/support_files/models/SuperGlue_outdoor.pt"
+#define UltraPointPath "/home/jesse/workspace/catkin_ws_ov/src/ov_hloc/support_files/models/UltraPoint.pt"
 
 class SuperPoint {
 public:
