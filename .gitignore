@@ -1,0 +1,4 @@
+support_files/Networks/__pycache__/
+*.pt
+*.pth
+*.mat

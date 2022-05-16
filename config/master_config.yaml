@@ -1,0 +1,30 @@
+%YAML:1.0
+
+
+# general parameters
+imu: 1 # if zero we do full 6 dof, otherwise if 1 then 4 dof optimization
+output_path: "~/output/" # where to save final trajectory
+
+
+# loop closure saving parameters
+load_previous_pose_graph: 0 # load and reuse previous pose graph; load from 'pose_graph_save_path'
+pose_graph_save_path: "~/output/pose_graph/" # save and load path
+save_image: 1 # save image in pose graph for visualization prupose; you can close this function by setting 0
+
+
+# loop closure parameters
+recall_ignore_recent_ct: 40 # how many frames we should skip that are recent (avoid matching to recent frames)
+pnp_inflation: 10.0 # amount to inflate pnp ransac sigma by (10.0 default)
+
+max_theta_diff: 170.0 # max orientation diff between keyframe and query frame (degrees)
+max_pos_diff: 1.5 # max position diff between keyframe and query frame (meters)
+min_loop_feat_num: 35 # minimum number of features needed to be matched between the keyframe and query frame
+
+# keyframing parameters
+skip_dist: 0.02 # meters, distance between keyframes
+skip_cnt: 0 # num, skip every n frames (typically don't need unless high framerate)
+
+# netvlad threshold
+loop_threshold: 0.35
+reloc_threshold: 0.3
+

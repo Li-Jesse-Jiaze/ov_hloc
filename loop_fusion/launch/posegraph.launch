@@ -1,0 +1,34 @@
+<launch>
+
+
+
+    <arg name="config_path" default="$(find loop_fusion)/../config/master_config.yaml" />
+
+
+    <node name="loop_fusion_node" pkg="loop_fusion" type="loop_fusion_node" output="screen" args="$(arg config_path)" required="true">
+<!--    <node name="loop_fusion_node" pkg="loop_fusion" type="loop_fusion_node" output="screen" args="$(arg config_path)" required="true" launch-prefix="gdb -ex run &#45;&#45;args">-->
+
+
+        <!-- INPUT: keyframe poses / marginalized poses -->
+        <remap from="/cam0/image_raw"                  to="/cam0/image_raw"/>
+        <remap from="/vins_estimator/extrinsic"        to="/ov_msckf/loop_extrinsic"/>
+        <remap from="/vins_estimator/keyframe_point"   to="/ov_msckf/loop_feats"/>
+        <remap from="/vins_estimator/keyframe_pose"    to="/ov_msckf/loop_pose"/>
+        <remap from="/vins_estimator/intrinsics"       to="/ov_msckf/loop_intrinsics"/>
+
+        <!-- INPUT: current system pose and points -->
+        <remap from="/vins_estimator/pose"             to="/ov_msckf/poseimu"/>
+        <!--<remap from="/vins_estimator/odometry"         to="invalid1"/>-->
+        <!--<remap from="/vins_estimator/margin_cloud"     to="invalid2"/>-->
+
+        <!-- OUTPUT: visualization topics -->
+        <remap from="/loop_fusion_node/match_image"    to="/ov_secondary/match_image"/>
+        <remap from="/loop_fusion_node/pose_rect"      to="/ov_secondary/poseimu"/>
+        <remap from="/loop_fusion_node/odometry_rect"  to="/ov_secondary/odomimu"/>
+
+
+    </node>
+
+
+
+</launch>

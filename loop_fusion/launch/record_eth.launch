@@ -1,0 +1,52 @@
+<launch>
+
+
+
+    <!-- settings for txt gen -->
+    <arg name="run_number"  default="00" />
+    <arg name="mode_type"   default="mono" />
+
+    <!-- what dataset we are using -->
+    <arg name="max_cameras" default="1" />
+    <arg name="dataset"     default="V1_01_easy" /> <!-- V1_01_easy, V1_02_medium, V1_03_difficult -->
+    <arg name="bag"         default="/home/patrick/datasets/eth/$(arg dataset).bag" />
+
+    <!-- saving trajectory path -->
+    <arg name="path_est"    default="$(find loop_fusion)/../data/algorithms/$(arg mode_type)_open_vins/$(arg dataset)/$(arg run_number)_estimate.txt" />
+    <arg name="path_opt"    default="$(find loop_fusion)/../data/algorithms/$(arg mode_type)_pose_graph/$(arg dataset)/$(arg run_number)_estimate.txt" />
+
+
+    <!-- ======================================================================= -->
+    <!-- ======================================================================= -->
+
+
+    <!-- VIO: include the other launch file -->
+    <include file="$(find ov_msckf)/launch/pgeneva_ros_eth.launch">
+        <arg name="max_cameras" value="$(arg max_cameras)" />
+        <arg name="bag"         value="$(arg bag)" />
+    </include>
+
+
+    <!-- GRAPH: include the other launch file -->
+    <include file="$(find loop_fusion)/launch/posegraph.launch" />
+
+    <!-- record vio estimate -->
+    <node name="recorder_estimate1" pkg="ov_eval" type="pose_to_file" output="screen">
+        <param name="topic"      type="str" value="/ov_msckf/poseimu" />
+        <param name="topic_type" type="str" value="PoseWithCovarianceStamped" />
+        <param name="output"     type="str" value="$(arg path_est)" />
+    </node>
+
+    <!-- record loop closed pose -->
+    <node name="recorder_estimate2" pkg="ov_eval" type="pose_to_file" output="screen">
+        <param name="topic"      type="str" value="/ov_secondary/poseimu" />
+        <param name="topic_type" type="str" value="PoseWithCovarianceStamped" />
+        <param name="output"     type="str" value="$(arg path_opt)" />
+    </node>
+
+
+    <!-- ======================================================================= -->
+    <!-- ======================================================================= -->
+
+
+</launch>
