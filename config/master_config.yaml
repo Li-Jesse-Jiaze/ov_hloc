@@ -21,7 +21,7 @@ min_loop_feat_num: 35 # minimum number of features needed to be matched between 
 
 # keyframing parameters
 skip_dist: 0.02 # meters, distance between keyframes
-skip_cnt: 0 # num, skip every n frames (typically don't need unless high framerate)
+skip_cnt: 3 # num, skip every n frames (typically don't need unless high framerate)
 
 # netvlad threshold
 loop_threshold: 0.35

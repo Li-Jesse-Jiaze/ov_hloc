@@ -368,12 +368,12 @@ void process()
             if (image_buf.front()->header.stamp.toSec() > pose_buf.front()->header.stamp.toSec())
             {
                 pose_buf.pop();
-                printf("throw pose at beginning\n");
+                printf("[POSEGRAPH]: throw pose at beginning\n");
             }
             else if (image_buf.front()->header.stamp.toSec() > point_buf.front()->header.stamp.toSec())
             {
                 point_buf.pop();
-                printf("throw point at beginning\n");
+                printf("[POSEGRAPH]: throw point at beginning\n");
             }
             else if (image_buf.back()->header.stamp.toSec() >= pose_buf.front()->header.stamp.toSec() 
                 && point_buf.back()->header.stamp.toSec() >= pose_buf.front()->header.stamp.toSec())

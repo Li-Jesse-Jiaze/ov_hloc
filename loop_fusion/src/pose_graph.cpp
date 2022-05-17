@@ -531,7 +531,7 @@ void PoseGraph::optimize4DoF()
         m_optimize_buf.unlock();
         if (cur_index != -1)
         {
-            printf("optimize pose graph \n");
+            printf("[POSEGRAPH]: optimize pose graph \n");
             TicToc tmp_t;
             m_keyframelist.lock();
             KeyFrame* cur_kf = getKeyFrame(cur_index);
@@ -711,7 +711,7 @@ void PoseGraph::optimize6DoF()
         m_optimize_buf.unlock();
         if (cur_index != -1)
         {
-            printf("optimize pose graph \n");
+            printf("[POSEGRAPH]: optimize pose graph \n");
             TicToc tmp_t;
             m_keyframelist.lock();
             KeyFrame* cur_kf = getKeyFrame(cur_index);
