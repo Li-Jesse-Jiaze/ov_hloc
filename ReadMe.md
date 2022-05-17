@@ -5,11 +5,11 @@ Using **[Hierarchical-Localization](https://github.com/cvg/Hierarchical-Localiza
 
 ## Dependencies
 
-* OpenVINS - https://docs.openvins.com/gs-installing.html
+* OpenVINS - <https://docs.openvins.com/gs-installing.html>
 
-* Ceres Solver - https://github.com/ceres-solver/ceres-solver
+* Ceres Solver - <https://github.com/ceres-solver/ceres-solver>
 
-* PyTorch and libtorch - https://pytorch.org/get-started/locally/
+* PyTorch and libtorch - <https://pytorch.org/get-started/locally/>
 
   For libtorch, all you need to do is unzip it and fill the file path into `loop_fusion/CMakeLists.txt` line 13.
 
@@ -19,7 +19,6 @@ Using **[Hierarchical-Localization](https://github.com/cvg/Hierarchical-Localiza
   ```
 
 ## Installation Commands
-
 
 ```shell
 # setup our workspace
@@ -45,12 +44,11 @@ python convert_model.py
 
 ## Run Example
 
-```
-roscore # term 0
-roslaunch ov_msckf subscribe.launch config:=euroc_mav # term 2
-roslaunch loop_fusion posegraph.launch # term 3
-rviz # term 4
-rosbag play V1_01_easy.bag # term 5
+``` shell
+roslaunch ov_msckf subscribe.launch config:=euroc_mav # term 1
+rosrun loop_fusion loop_fusion_node ~/workspace/catkin_ws_ov/src/ov_secondary/config/master_config.yaml # term 2
+rviz # term 3
+rosbag play V1_01_easy.bag # term 4
 ```
 
 select `config/vins_rviz_config.rviz` as config in rviz

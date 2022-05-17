@@ -88,8 +88,6 @@ void KeyFrame::computeWindow() {
 void KeyFrame::computeNew() {
     vector<cv::Point2f> _keypoints;
     std::vector<cv::Point2f> gf_points;
-    std::vector<float> gf_scores;
-    cv::Mat gf_local_descriptors;
 
     // extract deep learning keypoints
     SuperPoint::Extract(image, _keypoints, scores, local_descriptors);
@@ -100,20 +98,18 @@ void KeyFrame::computeNew() {
         keypoints.push_back(key);
     }
 
-    // extract traditional keypoints
-    cv::goodFeaturesToTrack(image, gf_points, 100, 0.01, 30);
-    UltraPoint::Extract(image, gf_points, gf_scores, gf_local_descriptors);
-    for(auto & i : gf_points)
+    // push back the uvs used in vio
+    for(auto & i : point_2d_uv)
     {
         cv::KeyPoint key;
         key.pt = i;
         keypoints.push_back(key);
     }
-    for(auto & i : gf_scores)
+    for(auto & i : window_scores)
     {
         scores.push_back(i);
     }
-    cv::hconcat(local_descriptors, gf_local_descriptors, local_descriptors);
+    cv::hconcat(local_descriptors, window_local_descriptors, local_descriptors);
 
     for (int i = 0; i < (int)keypoints.size(); i++)
     {

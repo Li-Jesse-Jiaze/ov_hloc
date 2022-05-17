@@ -584,35 +584,35 @@ int main(int argc, char **argv)
 
     // Get camera information
     printf("[POSEGRAPH]: waiting for camera info topic...\n");
-    auto msg1 = ros::topic::waitForMessage<sensor_msgs::CameraInfo>("/vins_estimator/intrinsics", ros::Duration(ros::DURATION_MAX));
+    auto msg1 = ros::topic::waitForMessage<sensor_msgs::CameraInfo>("/ov_msckf/loop_intrinsics", ros::Duration(ros::DURATION_MAX));
     intrinsics_callback(msg1);
     printf("[POSEGRAPH]: received camera info message!\n");
     std::cout << m_camera.get()->parametersToString() << std::endl;
 
     // Get camera to imu information
     printf("[POSEGRAPH]: waiting for camera to imu extrinsics topic...\n");
-    auto msg2 = ros::topic::waitForMessage<nav_msgs::Odometry>("/vins_estimator/extrinsic", ros::Duration(ros::DURATION_MAX));
+    auto msg2 = ros::topic::waitForMessage<nav_msgs::Odometry>("/ov_msckf/loop_extrinsic", ros::Duration(ros::DURATION_MAX));
     extrinsic_callback(msg2);
     printf("[POSEGRAPH]: received camera to imu extrinsics message!\n");
     std::cout << qic.transpose() << std::endl;
     std::cout << tic.transpose() << std::endl;
 
     // Setup the rest of the publishers
-    ros::Subscriber sub_vio1 = n.subscribe("/vins_estimator/odometry", 2000, vio_callback);
-    ros::Subscriber sub_vio2 = n.subscribe("/vins_estimator/pose", 2000, vio_callback_pose);
+    // ros::Subscriber sub_vio1 = n.subscribe("/vins_estimator/odometry", 2000, vio_callback);
+    ros::Subscriber sub_vio2 = n.subscribe("/ov_msckf/poseimu", 2000, vio_callback_pose);
     ros::Subscriber sub_image = n.subscribe("/cam0/image_raw", 2000, image_callback);
-    ros::Subscriber sub_pose = n.subscribe("/vins_estimator/keyframe_pose", 2000, pose_callback);
-    ros::Subscriber sub_extrinsic = n.subscribe("/vins_estimator/extrinsic", 2000, extrinsic_callback);
-    ros::Subscriber sub_intrinsics = n.subscribe("/vins_estimator/intrinsics", 2000, intrinsics_callback);
-    ros::Subscriber sub_point = n.subscribe("/vins_estimator/keyframe_point", 2000, point_callback);
-    ros::Subscriber sub_margin_point = n.subscribe("/vins_estimator/margin_cloud", 2000, margin_point_callback);
+    ros::Subscriber sub_pose = n.subscribe("/ov_msckf/loop_pose", 2000, pose_callback);
+    ros::Subscriber sub_extrinsic = n.subscribe("/ov_msckf/loop_extrinsic", 2000, extrinsic_callback);
+    ros::Subscriber sub_intrinsics = n.subscribe("/ov_msckf/loop_intrinsics", 2000, intrinsics_callback);
+    ros::Subscriber sub_point = n.subscribe("/ov_msckf/loop_feats", 2000, point_callback);
+    // ros::Subscriber sub_margin_point = n.subscribe("/vins_estimator/margin_cloud", 2000, margin_point_callback);
 
     pub_match_img = n.advertise<sensor_msgs::Image>("match_image", 1000);
     pub_camera_pose_visual = n.advertise<visualization_msgs::MarkerArray>("camera_pose_visual", 1000);
     pub_point_cloud = n.advertise<sensor_msgs::PointCloud>("point_cloud_loop_rect", 1000);
     pub_margin_cloud = n.advertise<sensor_msgs::PointCloud>("margin_cloud_loop_rect", 1000);
-    pub_odometry_rect = n.advertise<nav_msgs::Odometry>("odometry_rect", 1000);
-    pub_pose_rect = n.advertise<geometry_msgs::PoseWithCovarianceStamped>("pose_rect", 1000);
+    pub_odometry_rect = n.advertise<nav_msgs::Odometry>("odomimu", 1000);
+    pub_pose_rect = n.advertise<geometry_msgs::PoseWithCovarianceStamped>("poseimu", 1000);
 
     std::thread measurement_process;
     std::thread keyboard_command_process;

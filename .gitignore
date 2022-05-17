@@ -1,4 +1,5 @@
-support_files/Networks/__pycache__/
-*.pt
 *.pth
+*.pt
 *.mat
+support_files/Networks/__pycache__/
+.vscode/
