@@ -17,7 +17,7 @@ In the application scenario you can use COLMAP to build SfM maps (using SuperPoi
 
 * PyTorch and libtorch - <https://pytorch.org/get-started/locally/>
 
-  For libtorch, all you need to do is unzip it and fill the file path into `loop_fusion/CMakeLists.txt` line 13.
+  For libtorch, all you need to do is unzip it and fill the file path into [loop_fusion/CMakeLists.txt](loop_fusion/CMakeLists.txt) line 22.
 
   ```cmake
   # set your own libtorch path

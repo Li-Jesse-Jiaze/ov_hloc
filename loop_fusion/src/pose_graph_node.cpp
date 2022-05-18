@@ -555,10 +555,7 @@ int main(int argc, char **argv)
     fsSettings["max_theta_diff"] >> MAX_THETA_DIFF;
     fsSettings["max_pos_diff"] >> MAX_POS_DIFF;
     fsSettings["min_loop_feat_num"] >> MIN_LOOP_NUM;
-
-    int LOAD_PREVIOUS_POSE_GRAPH;
-
-    LOAD_PREVIOUS_POSE_GRAPH = fsSettings["load_previous_pose_graph"];
+    fsSettings["load_previous_pose_graph"] >> LOAD_PREVIOUS_POSE_GRAPH;
     VINS_RESULT_PATH = VINS_RESULT_PATH + "/vio_loop.csv";
     std::ofstream fout(VINS_RESULT_PATH, std::ios::out);
     fout.close();
