@@ -17,11 +17,11 @@ pnp_inflation: 10.0 # amount to inflate pnp ransac sigma by (10.0 default)
 
 max_theta_diff: 170.0 # max orientation diff between keyframe and query frame (degrees)
 max_pos_diff: 1.5 # max position diff between keyframe and query frame (meters)
-min_loop_feat_num: 35 # minimum number of features needed to be matched between the keyframe and query frame
+min_loop_feat_num: 25 # minimum number of features needed to be matched between the keyframe and query frame
 
 # keyframing parameters
 skip_dist: 0.02 # meters, distance between keyframes
-skip_cnt: 3 # num, skip every n frames (typically don't need unless high framerate)
+skip_cnt: 0 # num, skip every n frames (typically don't need unless high framerate)
 
 # netvlad threshold
 loop_threshold: 0.35
