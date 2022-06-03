@@ -11,7 +11,6 @@
 
 #include "pose_graph.h"
 
-
 bool writeMatBinary(std::ofstream& ofs, const cv::Mat& out_mat)
 {
 	if(!ofs.is_open()){
@@ -43,11 +42,6 @@ bool SaveMatBinary(const std::string& filename, const cv::Mat& output){
 }
 
 
-//! Read cv::Mat from binary
-/*!
-\param[in] ifs input file stream
-\param[out] in_mat mat to load
-*/
 bool readMatBinary(std::ifstream& ifs, cv::Mat& in_mat)
 {
 	if(!ifs.is_open()){

@@ -1,7 +1,3 @@
-//
-// Created by 96320 on 2022/4/16.
-//
-
 #ifndef TEST_HLOCDATABASE_H
 #define TEST_HLOCDATABASE_H
 
