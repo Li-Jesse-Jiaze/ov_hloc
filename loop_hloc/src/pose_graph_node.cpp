@@ -510,7 +510,7 @@ void command()
 
 int main(int argc, char **argv)
 {
-    ros::init(argc, argv, "loop_fusion");
+    ros::init(argc, argv, "loop_hloc");
     ros::NodeHandle n("~");
     posegraph.registerPub(n);
     
@@ -521,8 +521,8 @@ int main(int argc, char **argv)
 
     if(argc != 2)
     {
-        printf("please intput: rosrun loop_fusion loop_fusion_node [config file] \n"
-               "for example: rosrun loop_fusion loop_fusion_node "
+        printf("please intput: rosrun loop_hloc loop_hloc_node [config file] \n"
+               "for example: rosrun loop_hloc loop_hloc_node "
                "~/catkin_ws/src/HFVIS/config/euroc/euroc_stereo_imu_config.yaml \n");
         return 0;
     }

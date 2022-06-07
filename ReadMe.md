@@ -17,7 +17,7 @@ In the application scenario you can use COLMAP to build SfM maps (using SuperPoi
 
 * PyTorch and libtorch - <https://pytorch.org/get-started/locally/>
 
-  For libtorch, all you need to do is unzip it and fill the file path into [loop_fusion/CMakeLists.txt](loop_fusion/CMakeLists.txt) line 22.
+  For libtorch, all you need to do is unzip it and fill the file path into [loop_hloc/CMakeLists.txt](loop_hloc/CMakeLists.txt) line 22.
 
   ```cmake
   # set your own libtorch path
@@ -52,7 +52,7 @@ python convert_model.py
 
 ``` shell
 roslaunch ov_msckf subscribe.launch config:=euroc_mav # term 1
-rosrun loop_fusion loop_fusion_node ~/workspace/catkin_ws_ov/src/ov_secondary/config/master_config.yaml # term 2
+rosrun loop_hloc loop_hloc_node ~/workspace/catkin_ws_ov/src/ov_secondary/config/master_config.yaml # term 2
 rviz # term 3
 rosbag play V1_01_easy.bag # term 4
 ```

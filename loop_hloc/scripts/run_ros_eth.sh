@@ -55,7 +55,7 @@ then
 fi
 
 # run our ROS launch file (note we send console output to terminator)
-roslaunch loop_fusion record_eth.launch max_cameras:="$temp1" dataset:="${bagnames[i]}" run_number:="$j" mode_type:="${modes[h]}" &> /dev/null
+roslaunch loop_hloc record_eth.launch max_cameras:="$temp1" dataset:="${bagnames[i]}" run_number:="$j" mode_type:="${modes[h]}" &> /dev/null
 
 # print out the time elapsed
 end_time="$(date -u +%s)"

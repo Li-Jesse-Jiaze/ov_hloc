@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package>
-  <name>loop_fusion</name>
+  <name>loop_hloc</name>
   <version>0.0.0</version>
-  <description>loop_fusion package</description>
+  <description>loop_hloc package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag --> 
   <!-- Example:  -->

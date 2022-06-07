@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.3)
-project(loop_fusion)
+project(loop_hloc)
 
 set(CMAKE_BUILD_TYPE "Release")
 set(CMAKE_CXX_FLAGS "-std=c++14")
@@ -38,7 +38,7 @@ include_directories(${catkin_INCLUDE_DIRS} ${CERES_INCLUDE_DIRS}  ${EIGEN3_INCLU
 
 catkin_package()
 
-add_executable(loop_fusion_node
+add_executable(loop_hloc_node
     src/pose_graph_node.cpp
     src/pose_graph.cpp
     src/keyframe.cpp
@@ -47,4 +47,4 @@ add_executable(loop_fusion_node
     src/hloc/hlocDatabase.h
     )
 
-target_link_libraries(loop_fusion_node ${catkin_LIBRARIES}  ${OpenCV_LIBS} ${CERES_LIBRARIES} ${CUDA_LIBRARIES} ${TORCH_LIBRARIES}) 
+target_link_libraries(loop_hloc_node ${catkin_LIBRARIES}  ${OpenCV_LIBS} ${CERES_LIBRARIES} ${CUDA_LIBRARIES} ${TORCH_LIBRARIES}) 
