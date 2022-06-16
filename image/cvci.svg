@@ -6049,10 +6049,10 @@
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
 			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textBlock v:margins="rect(4,6,4,6)" v:tabSpace="42.5197"/>
 			<v:textRect cx="77.9528" cy="297.432" width="155.91" height="50.7252"/>
 			<path d="M77.95 322.79 L155.91 297.43 L77.95 272.07 L0 297.43 L77.95 322.79 Z" class="st1"/>
-			<text x="63.17" y="301.03" class="st6" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Loop?</text>		</g>
+			<text x="61.69" y="301.03" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Loop?</text>		</g>
 		<g id="shape181-92" v:mID="181" v:groupContext="shape" v:layerMember="1" transform="translate(518.49,-150.559)">
 			<title>动态连接线.181</title>
 			<path d="M-7.09 322.79 L-7.09 382.33" class="st8"/>
@@ -6063,10 +6063,10 @@
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
 			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textBlock v:margins="rect(4,6,4,6)" v:tabSpace="42.5197"/>
 			<v:textRect cx="58.1227" cy="303.856" width="116.25" height="37.8779"/>
 			<rect x="0" y="284.917" width="116.245" height="37.8779" class="st1"/>
-			<text x="26.66" y="307.46" class="st6" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>RANSAC PNP</text>		</g>
+			<text x="23.52" y="307.46" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>RANSAC PNP</text>		</g>
 		<g id="shape192-100" v:mID="192" v:groupContext="shape" v:layerMember="1" transform="translate(427.318,-212.043)">
 			<title>动态连接线.192</title>
 			<path d="M0 325.98 L32.19 332.02" class="st8"/>
@@ -6103,11 +6103,11 @@
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
 			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textBlock v:margins="rect(4,6,4,6)" v:tabSpace="42.5197"/>
 			<v:textRect cx="58.1227" cy="303.856" width="116.25" height="37.8779"/>
 			<rect x="0" y="284.917" width="116.245" height="37.8779" class="st1"/>
-			<text x="30.11" y="300.26" class="st6" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Pose Graph <tspan
-						x="26.49" dy="1.2em" class="st10">Optimization</tspan></text>		</g>
+			<text x="27.31" y="300.26" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Pose Graph <tspan
+						x="23.33" dy="1.2em" class="st10">Optimization</tspan></text>		</g>
 		<g id="shape203-132" v:mID="203" v:groupContext="shape" v:layerMember="1" transform="translate(518.49,-235.598)">
 			<title>动态连接线.203</title>
 			<path d="M-7.09 322.79 L-7.09 291.3" class="st8"/>
