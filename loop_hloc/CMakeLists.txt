@@ -15,7 +15,7 @@ find_package(catkin REQUIRED COMPONENTS
     roslib
     )
 
-set(CMAKE_CUDA_COMPILER  /usr/local/cuda-11.6/bin/nvcc)
+# set(CMAKE_CUDA_COMPILER  /usr/local/cuda/bin/nvcc)
 find_package(CUDA)
 
 # set your own libtorch path

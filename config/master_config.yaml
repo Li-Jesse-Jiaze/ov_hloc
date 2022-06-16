@@ -27,3 +27,10 @@ skip_cnt: 0 # num, skip every n frames (typically don't need unless high framera
 loop_threshold: 0.35
 reloc_threshold: 0.3
 
+# ros topics
+image_topic: "/cam0/image_raw"
+vio_topic: "/ov_msckf/poseimu"
+extrinsic_topic: "/ov_msckf/loop_extrinsic"
+intrinsics_topic: "/ov_msckf/loop_intrinsics"
+pose_topic: "/ov_msckf/loop_pose"
+points_topic: "/ov_msckf/loop_feats"

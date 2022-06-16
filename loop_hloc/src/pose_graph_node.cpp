@@ -526,6 +526,7 @@ int main(int argc, char **argv)
                "~/catkin_ws/src/HFVIS/config/euroc/euroc_stereo_imu_config.yaml \n");
         return 0;
     }
+    std::string IMAGE_TOPIC, VIO_TOPIC, EXTRINSIC_TOPIC, INTRINSICS_TOPIC, POSE_TOPIC, POINTS_TOPIC;
     
     string config_file = argv[1];
     printf("config_file: %s\n", argv[1]);
@@ -556,6 +557,12 @@ int main(int argc, char **argv)
     fsSettings["max_pos_diff"] >> MAX_POS_DIFF;
     fsSettings["min_loop_feat_num"] >> MIN_LOOP_NUM;
     fsSettings["load_previous_pose_graph"] >> LOAD_PREVIOUS_POSE_GRAPH;
+    fsSettings["image_topic"] >> IMAGE_TOPIC;
+    fsSettings["vio_topic"] >> VIO_TOPIC;
+    fsSettings["extrinsic_topic"] >> EXTRINSIC_TOPIC;
+    fsSettings["intrinsics_topic"] >> INTRINSICS_TOPIC;
+    fsSettings["pose_topic"] >> POSE_TOPIC;
+    fsSettings["points_topic"] >> POINTS_TOPIC;
     VINS_RESULT_PATH = VINS_RESULT_PATH + "/vio_loop.csv";
     std::ofstream fout(VINS_RESULT_PATH, std::ios::out);
     fout.close();
@@ -596,12 +603,12 @@ int main(int argc, char **argv)
 
     // Setup the rest of the publishers
     // ros::Subscriber sub_vio1 = n.subscribe("/vins_estimator/odometry", 2000, vio_callback);
-    ros::Subscriber sub_vio2 = n.subscribe("/ov_msckf/poseimu", 2000, vio_callback_pose);
-    ros::Subscriber sub_image = n.subscribe("/cam0/image_raw", 2000, image_callback);
-    ros::Subscriber sub_pose = n.subscribe("/ov_msckf/loop_pose", 2000, pose_callback);
-    ros::Subscriber sub_extrinsic = n.subscribe("/ov_msckf/loop_extrinsic", 2000, extrinsic_callback);
-    ros::Subscriber sub_intrinsics = n.subscribe("/ov_msckf/loop_intrinsics", 2000, intrinsics_callback);
-    ros::Subscriber sub_point = n.subscribe("/ov_msckf/loop_feats", 2000, point_callback);
+    ros::Subscriber sub_vio2 = n.subscribe(VIO_TOPIC, 2000, vio_callback_pose);
+    ros::Subscriber sub_image = n.subscribe(IMAGE_TOPIC, 2000, image_callback);
+    ros::Subscriber sub_pose = n.subscribe(POSE_TOPIC, 2000, pose_callback);
+    ros::Subscriber sub_extrinsic = n.subscribe(EXTRINSIC_TOPIC, 2000, extrinsic_callback);
+    ros::Subscriber sub_intrinsics = n.subscribe(INTRINSICS_TOPIC, 2000, intrinsics_callback);
+    ros::Subscriber sub_point = n.subscribe(POINTS_TOPIC, 2000, point_callback);
     // ros::Subscriber sub_margin_point = n.subscribe("/vins_estimator/margin_cloud", 2000, margin_point_callback);
 
     pub_match_img = n.advertise<sensor_msgs::Image>("match_image", 1000);
