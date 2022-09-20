@@ -19,7 +19,7 @@ find_package(catkin REQUIRED COMPONENTS
 find_package(CUDA)
 
 # set your own libtorch path
-set(TORCH_PATH /home/jesse/libtorch/share/cmake/Torch)
+set(TORCH_PATH /your/path/to/libtorch/share/cmake/Torch)
 if (TORCH_PATH)
     message("TORCH_PATH set to: ${TORCH_PATH}")
     set(Torch_DIR ${TORCH_PATH})

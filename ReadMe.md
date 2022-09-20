@@ -13,6 +13,9 @@ In the application scenario you can use COLMAP to build SfM maps (using SuperPoi
 
 ## Dependencies
 
+* Ubuntu and ROS - [noetic/Installation/Ubuntu - ROS Wiki](http://wiki.ros.org/noetic/Installation/Ubuntu)
+  This will help you to install a series of dependencies such as OpenCV.
+
 * OpenVINS - <https://docs.openvins.com/gs-installing.html>
 
 * Ceres Solver - <https://github.com/ceres-solver/ceres-solver>
@@ -33,12 +36,11 @@ In the application scenario you can use COLMAP to build SfM maps (using SuperPoi
 mkdir -p ~/workspace/catkin_ws_ov/src/
 cd ~/workspace/catkin_ws_ov/src/
 # repositories to clone
-cd src
 git clone https://github.com/rpng/open_vins.git
 git clone https://github.com/Li-Jesse-Jiaze/ov_hloc.git
 # go back to root and build
-cd ..
-catkin build -j4
+cd ~/workspace/catkin_ws_ov
+catkin build
 ```
 
 ## Download and Convert HF-Net
@@ -56,11 +58,11 @@ python convert_model.py
 roslaunch ov_msckf subscribe.launch config:=euroc_mav # term 1
 rosrun loop_hloc loop_hloc_node ~/workspace/catkin_ws_ov/src/ov_secondary/config/master_config.yaml # term 2
 rviz # term 3
-rosbag play V1_01_easy.bag # term 4
+rosbag play your/dataset/path/V1_01_easy.bag # term 4
 ```
 
 select `config/vins_rviz_config.rviz` as config in rviz
 
-The pose graph is not very smooth when I tested it on my laptop(RTX 2060 Max-Q 65W). This is mainly because my NetVLAD is using a VGG16 (it tooks more than 50ms for each frame 😠). It would be better to use a lighter network (e.g. Mobile Net) and fine-tuning it for your application scenario to describe the images for NetVLAD.
+The pose graph was not very smooth when I tested it on my laptop(RTX 2060 Max-Q 65W). This is mainly because my NetVLAD is using a VGG16 (it tooks more than 50ms for each frame 😠). It would be better to use a lighter backbone (e.g. MobileNetV3) and fine-tuning NetVLAD for your application scenario.
 
 Here's a simple [video](https://www.bilibili.com/video/bv1KP4y1F73M) of it working with VINS-Fusion.
