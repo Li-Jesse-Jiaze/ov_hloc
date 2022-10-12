@@ -31,7 +31,8 @@ I recommend installing them in the following order.
 
 <details>
 <summary>[CUDA and cuDNN]</summary>
-**CUDA**: 
+
+**CUDA**:
 
 ```bash
 # You need to adjust it according to your system version
@@ -74,7 +75,7 @@ which is relevant to Ubuntu 20.04 LTS. After downloading, you should have the fo
 
 that you can install using `dpkg` commands:
 
-```
+``` bash
 sudo dpkg -i  libcudnn8_8.2.0.53-1+cuda11.3_amd64.deb
 sudo dpkg -i libcudnn8-dev_8.2.0.53-1+cuda11.3_amd64.deb
 sudo dpkg -i libcudnn8-samples_8.2.0.53-1+cuda11.3_amd64.deb
@@ -86,8 +87,8 @@ After the installation is complete you can verify the installation with https://
 
 <details>
 <summary>[Pytorch and libtorch]</summary>
-**Pytorch**: Follow [Start Locally | PyTorch](https://pytorch.org/get-started/locally/) to install Pytorch. Here I recommend using conda to install pytorch.
 
+**Pytorch**: Follow [Start Locally | PyTorch](https://pytorch.org/get-started/locally/) to install Pytorch. Here I recommend using conda to install pytorch.
 
 ```bash
 conda install pytorch torchvision torchaudio cudatoolkit=11.6 -c pytorch -c conda-forge
@@ -101,6 +102,7 @@ conda install pytorch torchvision torchaudio cudatoolkit=11.6 -c pytorch -c cond
 
 <details>
 <summary>[ROS]</summary>
+
 **ROS**: Follow [Getting Started » Installation Guide | OpenVINS](https://docs.openvins.com/gs-installing.html#gs-install-openvins) to install ROS1.
 
 ```bash
@@ -128,6 +130,7 @@ source ~/.bashrc
 
 <details>
 <summary>[OpenVINS]</summary>
+
 **OpenVINS**: Follow [Getting Started » Installation Guide | OpenVINS](https://docs.openvins.com/gs-installing.html#gs-install-openvins) to clone the OpenVINS project.
 
 ```bash
@@ -140,6 +143,7 @@ git clone https://github.com/rpng/open_vins/
 
 <details>
 <summary>[ov_hloc]</summary>
+
 **ov_hloc**: Congratulations on all the hard work you've gone through to get here.
 
 ```bash
